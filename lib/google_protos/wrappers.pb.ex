@@ -3,8 +3,9 @@ defmodule Google.Protobuf.DoubleValue do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          value: float
+          value: float | :infinity | :negative_infinity | :nan
         }
+
   defstruct [:value]
 
   field :value, 1, type: :double
@@ -15,8 +16,9 @@ defmodule Google.Protobuf.FloatValue do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          value: float
+          value: float | :infinity | :negative_infinity | :nan
         }
+
   defstruct [:value]
 
   field :value, 1, type: :float
@@ -29,6 +31,7 @@ defmodule Google.Protobuf.Int64Value do
   @type t :: %__MODULE__{
           value: integer
         }
+
   defstruct [:value]
 
   field :value, 1, type: :int64
@@ -41,6 +44,7 @@ defmodule Google.Protobuf.UInt64Value do
   @type t :: %__MODULE__{
           value: non_neg_integer
         }
+
   defstruct [:value]
 
   field :value, 1, type: :uint64
@@ -53,6 +57,7 @@ defmodule Google.Protobuf.Int32Value do
   @type t :: %__MODULE__{
           value: integer
         }
+
   defstruct [:value]
 
   field :value, 1, type: :int32
@@ -65,6 +70,7 @@ defmodule Google.Protobuf.UInt32Value do
   @type t :: %__MODULE__{
           value: non_neg_integer
         }
+
   defstruct [:value]
 
   field :value, 1, type: :uint32
@@ -77,6 +83,7 @@ defmodule Google.Protobuf.BoolValue do
   @type t :: %__MODULE__{
           value: boolean
         }
+
   defstruct [:value]
 
   field :value, 1, type: :bool
@@ -89,6 +96,7 @@ defmodule Google.Protobuf.StringValue do
   @type t :: %__MODULE__{
           value: String.t()
         }
+
   defstruct [:value]
 
   field :value, 1, type: :string
@@ -99,8 +107,9 @@ defmodule Google.Protobuf.BytesValue do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          value: String.t()
+          value: binary
         }
+
   defstruct [:value]
 
   field :value, 1, type: :bytes
